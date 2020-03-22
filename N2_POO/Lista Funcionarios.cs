@@ -8,7 +8,7 @@ namespace N2_POO
 {
     static class Lista_Funcionarios
     {
-        static List<Funcionario> funcionarios; //armazena os funcionarios 
+        static List<Funcionario> funcionarios = new List<Funcionario>(); //armazena os funcionarios 
 
 
         /// <summary>

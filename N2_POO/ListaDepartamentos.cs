@@ -8,7 +8,7 @@ namespace N2_POO
 {
     static class ListaDepartamentos
     {
-        static private List<Departamento> departamentos;
+        static private List<Departamento> departamentos = new List<Departamento>();
 
         /// <summary>
         /// Incrementa um departamento na lista
