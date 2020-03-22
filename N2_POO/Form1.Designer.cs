@@ -29,32 +29,68 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnCadastrarDepartamento = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(242, 53);
+            this.label1.Location = new System.Drawing.Point(498, 417);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(290, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Utilize a lista de funcionários para armazenar as informações";
             // 
-            // panel1
+            // btnCadastrar
             // 
-            this.panel1.BackColor = System.Drawing.Color.Aqua;
-            this.panel1.Location = new System.Drawing.Point(299, 123);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 100);
-            this.panel1.TabIndex = 1;
+            this.btnCadastrar.Location = new System.Drawing.Point(293, 32);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(119, 49);
+            this.btnCadastrar.TabIndex = 1;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(294, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Cadastrar Funcionários:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(294, 106);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(125, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Cadastrar Departamento:";
+            // 
+            // btnCadastrarDepartamento
+            // 
+            this.btnCadastrarDepartamento.Location = new System.Drawing.Point(293, 122);
+            this.btnCadastrarDepartamento.Name = "btnCadastrarDepartamento";
+            this.btnCadastrarDepartamento.Size = new System.Drawing.Size(119, 49);
+            this.btnCadastrarDepartamento.TabIndex = 3;
+            this.btnCadastrarDepartamento.Text = "Cadastrar";
+            this.btnCadastrarDepartamento.UseVisualStyleBackColor = true;
+            this.btnCadastrarDepartamento.Click += new System.EventHandler(this.btnCadastrarDepartamento_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnCadastrarDepartamento);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -67,7 +103,10 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnCadastrarDepartamento;
     }
 }
 

@@ -58,7 +58,15 @@ namespace N2_POO
 
         public int Codigo { get => codigo; set => codigo = value; }
 
-        public int CodGerente { get => codGerente; set => codGerente = value; }
+        public int CodGerente
+        {
+            get => codGerente;
+            set
+            {
+
+            }
+        }
+
 
         public string Descrição { get => descricao; set => descricao = value; }
     }

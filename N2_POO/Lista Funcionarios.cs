@@ -200,7 +200,11 @@ namespace N2_POO
             }
         }
 
+        static public Funcionario Find(int codigoFuncionario)
+        {
+           return  funcionarios.Find(x => x.Codigo == codigoFuncionario);
 
+        }
 
     }
 }

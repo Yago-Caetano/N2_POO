@@ -88,5 +88,17 @@ namespace N2_POO
             return departamentos.Count;
         }
 
+        static public List<Departamento> ListaGeral()
+        {
+            if (departamentos.Count > 0)
+            {
+                return departamentos;
+            }
+            else
+            {
+                throw new Exception("Não há departamentos cadastrados");
+            }
+        }
+
     }
 }
