@@ -16,5 +16,10 @@ namespace N2_POO
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
