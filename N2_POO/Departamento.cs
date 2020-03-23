@@ -61,10 +61,8 @@ namespace N2_POO
         public int CodGerente
         {
             get => codGerente;
-            set
-            {
+            set => codGerente = value;
 
-            }
         }
 
 

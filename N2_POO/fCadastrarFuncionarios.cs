@@ -44,12 +44,12 @@ namespace N2_POO
 
             if (cbTipo.SelectedItem == null)
             {
-                if (cbTipo.Text.ToString()[0] != 'F' || cbTipo.Text.ToString()[0] != 'G')
+                if (cbTipo.Text[0] != 'F' || cbTipo.Text[0] != 'G')
                 {
                     MessageBox.Show("Tipo inválido");
                     return;
                 }
-                else if (cbTipo.Text.ToString()[0] == 'G')
+                else if (cbTipo.Text[0] == 'G')
                 {
                     f.SetTipo(cbTipo.SelectedItem.ToString()[0]);
                     Lista_Funcionarios.AdcionarFuncionario(f);
@@ -57,7 +57,8 @@ namespace N2_POO
                 else
                 {
                     f.SetTipo(cbTipo.SelectedItem.ToString()[0]);
-                    f.SetDepartamento(ListaDepartamentos.GetItem(Convert.ToInt32(nupDepartamento.Value)));
+                    f.SetDepartamento(ListaDepartamentos.Find(Convert.ToInt32(nupDepartamento.Value)));
+                    Lista_Funcionarios.AdcionarFuncionario(f);
                 }
 
             }
@@ -69,7 +70,16 @@ namespace N2_POO
             else
             {
                 f.SetTipo(cbTipo.SelectedItem.ToString()[0]);
-                f.SetDepartamento(ListaDepartamentos.GetItem(Convert.ToInt32(nupDepartamento.Value)));
+
+                if (ListaDepartamentos.Find(Convert.ToInt32(nupDepartamento.Value)) == null)
+                {
+                    MessageBox.Show("O Departamento não existe");
+                    return;
+                }
+                else
+                    f.SetDepartamento(ListaDepartamentos.Find(Convert.ToInt32(nupDepartamento.Value)));
+
+                Lista_Funcionarios.AdcionarFuncionario(f);
             }
 
 
@@ -84,11 +94,11 @@ namespace N2_POO
             foreach (var func in aux)
             {
                 if (func.GetDepartamento() == null)
-                    conteudo += func.Nome + "|" + func.Codigo + "|" + func.Nascimento.ToShortDateString() + "|" + func.Salario + "|"
-                  + 0 + "|" + func.Tipo;
+                    conteudo += func.Nome + "|" + func.Codigo +"|"+ func.CPF + "|" + func.Nascimento.ToShortDateString() + "|" + func.Salario + "|"
+                  + 0 + "|" + func.Tipo + Environment.NewLine;
                 else
-                    conteudo += func.Nome + "|" + func.Codigo + "|" + func.Nascimento.ToShortDateString() + "|" + func.Salario + "|"
-                      + func.GetDepartamento().Codigo + "|" + func.Tipo;
+                    conteudo += func.Nome + "|" + func.Codigo + "|" + func.CPF + "|" + func.Nascimento.ToShortDateString() + "|" + func.Salario + "|"
+                      + func.GetDepartamento().Codigo + "|" + func.Tipo + Environment.NewLine;
 
 
             }

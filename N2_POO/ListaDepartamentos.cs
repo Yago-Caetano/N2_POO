@@ -100,5 +100,11 @@ namespace N2_POO
             }
         }
 
+        static public Departamento Find(int codigoDepartamento)
+        {
+            return departamentos.Find(x => x.Codigo == codigoDepartamento);
+
+        }
+
     }
 }

@@ -102,7 +102,7 @@ namespace N2_POO
             {
                 foreach(Funcionario f in funcionarios)
                 {
-                    if(f.GetDepartamento().Equals(departamento))
+                    if(f.GetDepartamento() != null && f.GetDepartamento().Equals(departamento))
                     {
                         retornaFuncio.Add(f);
                     }

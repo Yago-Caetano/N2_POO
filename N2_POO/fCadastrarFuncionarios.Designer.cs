@@ -245,6 +245,7 @@
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.label1);
             this.Name = "fCadastrarFuncionarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fCadastrarFuncionarios";
             ((System.ComponentModel.ISupportInitialize)(this.nupCodigo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupSalario)).EndInit();

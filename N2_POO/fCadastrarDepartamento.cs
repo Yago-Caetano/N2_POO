@@ -21,10 +21,10 @@ namespace N2_POO
         private void btnCadastrarDepartamento_Click(object sender, EventArgs e)
         {
             Departamento d = new Departamento();
+            Funcionario validar = new Funcionario();
 
             try
             {
-                Funcionario validar = new Funcionario();
 
                 validar = Lista_Funcionarios.Find(Convert.ToInt32(nupCodigoGerente.Value));
 
@@ -39,6 +39,9 @@ namespace N2_POO
 
                 d.Codigo = Convert.ToInt32(nupCodigo.Value);
                 d.Descrição = txtDescricao.Text;
+                d.CodGerente = Convert.ToInt32(nupCodigoGerente.Value);
+
+
             }
             catch (Exception error)
             {
@@ -46,9 +49,9 @@ namespace N2_POO
                 return;
             }
 
-            ListaDepartamentos.Adcionar(d);
+            ListaDepartamentos.Adcionar(d);           
 
-            MessageBox.Show("Código: " + d.Codigo.ToString() + Environment.NewLine + "Código Gerente: " + d.CodGerente + Environment.NewLine
+            MessageBox.Show("Código: " + d.Codigo.ToString() + Environment.NewLine + "Código Gerente: " + d.CodGerente.ToString() + Environment.NewLine
                 + "Descrição: " + d.Descrição);
 
             string conteudo = "";
@@ -56,13 +59,15 @@ namespace N2_POO
 
             aux = ListaDepartamentos.ListaGeral();
 
-            foreach (var func in aux)
+            foreach (var departa in aux)
             {
-                conteudo += d.Codigo + "|" + d.CodGerente + "|" + d.Descrição;
+                conteudo += departa.Codigo + "|" + departa.CodGerente + "|" + departa.Descrição + Environment.NewLine;
 
             }
 
             File.WriteAllText("Departamentos.txt", conteudo, Encoding.UTF8);
+
+           
         }
     }
 }

@@ -50,10 +50,11 @@ namespace N2_POO
 
                     aux.SetNome(dadosFuncionarios[0]);
                     aux.SetCodigo(Convert.ToInt32(dadosFuncionarios[1]));
-                    aux.SetNascimento(Convert.ToDateTime(dadosFuncionarios[2]));
-                    aux.SetSalario(Convert.ToDouble(dadosFuncionarios[3]));
-                    aux.SetDepartamento(ListaDepartamentos.GetItem(Convert.ToInt32(dadosFuncionarios[4])));
-                    aux.SetTipo(dadosFuncionarios[5][0]);
+                    aux.setCPF(dadosFuncionarios[2]);
+                    aux.SetNascimento(Convert.ToDateTime(dadosFuncionarios[3]));
+                    aux.SetSalario(Convert.ToDouble(dadosFuncionarios[4]));
+                    aux.SetTipo(dadosFuncionarios[6][0]);
+                    aux.SetDepartamento(ListaDepartamentos.Find(Convert.ToInt32(dadosFuncionarios[5])));
 
                     Lista_Funcionarios.AdcionarFuncionario(aux);
                 }
@@ -75,6 +76,18 @@ namespace N2_POO
         private void btnCadastrarDepartamento_Click(object sender, EventArgs e)
         {
             fCadastrarDepartamento tela = new fCadastrarDepartamento();
+            tela.ShowDialog();
+        }
+
+        private void btnAumento_Click(object sender, EventArgs e)
+        {
+            fAumento tela = new fAumento();
+            tela.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            fListar tela = new fListar();
             tela.ShowDialog();
         }
     }

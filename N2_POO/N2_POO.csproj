@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Departamento.cs" />
+    <Compile Include="fAumento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAumento.Designer.cs">
+      <DependentUpon>fAumento.cs</DependentUpon>
+    </Compile>
     <Compile Include="fCadastrarDepartamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,12 @@
     <Compile Include="fCadastrarFuncionarios.Designer.cs">
       <DependentUpon>fCadastrarFuncionarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="fListar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fListar.Designer.cs">
+      <DependentUpon>fListar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,11 +82,17 @@
     <Compile Include="ListaDepartamentos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="fAumento.resx">
+      <DependentUpon>fAumento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fCadastrarDepartamento.resx">
       <DependentUpon>fCadastrarDepartamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fCadastrarFuncionarios.resx">
       <DependentUpon>fCadastrarFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fListar.resx">
+      <DependentUpon>fListar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

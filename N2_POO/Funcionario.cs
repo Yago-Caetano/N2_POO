@@ -251,7 +251,11 @@ namespace N2_POO
         /// <param name="departamento"></param>
         public void SetDepartamento(Departamento departamento)
         {
-            if (!ListaDepartamentos.Contains(departamento))
+            if (tipo == 'G')
+            {
+                departamento = null;
+            }
+            else if (!ListaDepartamentos.Contains(departamento))
             {
                 throw new Exception("Departamento Inexistente");
             }
@@ -314,7 +318,7 @@ namespace N2_POO
         /// <param name="Percentual"></param>
         public void AumentoSalario(float Percentual)
         {
-            salario = (salario * (Percentual / 100));
+            salario = salario + (salario * (Percentual / 100));
         }
 
     }
