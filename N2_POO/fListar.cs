@@ -28,11 +28,11 @@ namespace N2_POO
             {
                 if (func.GetDepartamento() == null)
                     conteudo += "Nome: " + func.Nome + Environment.NewLine + "Código: " + func.Codigo + Environment.NewLine + "CPF: "
-                        + func.CPF + Environment.NewLine+ "Data de Nascimento: " + func.Nascimento.ToShortDateString() + Environment.NewLine + "Salário: R$"
+                        + func.CPF + Environment.NewLine + "Data de Nascimento: " + func.Nascimento.ToShortDateString() + Environment.NewLine + "Salário: R$"
                         + func.Salario + Environment.NewLine + "Departamento: " + 0 + Environment.NewLine + "Tipo: " + func.Tipo + Environment.NewLine + Environment.NewLine;
 
                 else
-                    conteudo += "Nome: " + func.Nome + Environment.NewLine + "Código: " + func.Codigo + Environment.NewLine +  "CPF " +
+                    conteudo += "Nome: " + func.Nome + Environment.NewLine + "Código: " + func.Codigo + Environment.NewLine + "CPF " +
                        func.CPF + Environment.NewLine + "Data de Nascimento: " + func.Nascimento.ToShortDateString() + Environment.NewLine + "Salário: R$"
                         + func.Salario + Environment.NewLine + "Departamento: " + func.GetDepartamento().Codigo + Environment.NewLine + "Tipo: " + func.Tipo + Environment.NewLine + Environment.NewLine;
 
@@ -57,7 +57,7 @@ namespace N2_POO
             foreach (var func in aux)
             {
                 conteudo += "Nome: " + func.Nome + Environment.NewLine + "Código: " + func.Codigo + Environment.NewLine + "CPF: " + func.CPF
-                +Environment.NewLine + "Data de Nascimento: " + func.Nascimento.ToShortDateString() + Environment.NewLine + "Salário: R$"
+                + Environment.NewLine + "Data de Nascimento: " + func.Nascimento.ToShortDateString() + Environment.NewLine + "Salário: R$"
                     + func.Salario + Environment.NewLine + "Departamento: " + func.GetDepartamento().Codigo + Environment.NewLine + "Tipo: " + func.Tipo + Environment.NewLine + Environment.NewLine;
 
             }
@@ -74,7 +74,7 @@ namespace N2_POO
             {
                 aux = Lista_Funcionarios.ListarPorGerente(Lista_Funcionarios.Find(Convert.ToInt32(nupeCodGerente.Value)));
             }
-            catch(Exception erro)
+            catch (Exception erro)
             {
                 MessageBox.Show(erro.Message);
                 return;
@@ -107,21 +107,21 @@ namespace N2_POO
                 return;
             }
 
-            List<Departamento> departamentos =  ListaDepartamentos.ListaGeral();
+            List<Departamento> departamentos = ListaDepartamentos.ListaGeral();
 
-            for(int x = 0; x < aux.Count; x++)
+            for (int x = 0; x < aux.Count; x++)
             {
-                for(int y = 0; y < departamentos.Count; y++)
+                for (int y = 0; y < departamentos.Count; y++)
                 {
                     if (aux[x].Codigo == departamentos[y].CodGerente)
                     {
                         List<Funcionario> funcionariosDoDepartamento = Lista_Funcionarios.ListaDepartamento(departamentos[y]);
                         string gerente = $"Gerente: Código: {aux[x].Codigo} - Nome: {aux[x].Nome}" + Environment.NewLine;
 
-                        
+
                         string funcionarios = "";
 
-                        foreach( Funcionario f in funcionariosDoDepartamento)
+                        foreach (Funcionario f in funcionariosDoDepartamento)
                         {
                             funcionarios += $"Código: {f.Codigo} - Nome: {f.Nome} - CPF {f.CPF}" + Environment.NewLine;
                         }
@@ -138,6 +138,86 @@ namespace N2_POO
 
             }
 
+        }
+
+        private void fListar_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DateTime data = new DateTime(2019, Convert.ToInt32(nupMes.Value), 11);
+
+            List<Funcionario> aux = Lista_Funcionarios.ListaPorNascimento(Convert.ToDateTime(data));
+            string conteudo = "";
+
+            foreach (var func in aux)
+            {
+                if (func.GetDepartamento() == null)
+                    conteudo += "Nome: " + func.Nome + Environment.NewLine + "Código: " + func.Codigo + Environment.NewLine + "CPF: "
+                        + func.CPF + Environment.NewLine + "Data de Nascimento: " + func.Nascimento.ToShortDateString() + Environment.NewLine + "Salário: R$"
+                        + func.Salario + Environment.NewLine + "Departamento: " + 0 + Environment.NewLine + "Tipo: " + func.Tipo + Environment.NewLine + Environment.NewLine;
+
+                else
+                    conteudo += "Nome: " + func.Nome + Environment.NewLine + "Código: " + func.Codigo + Environment.NewLine + "CPF " +
+                       func.CPF + Environment.NewLine + "Data de Nascimento: " + func.Nascimento.ToShortDateString() + Environment.NewLine + "Salário: R$"
+                        + func.Salario + Environment.NewLine + "Departamento: " + func.GetDepartamento().Codigo + Environment.NewLine + "Tipo: " + func.Tipo + Environment.NewLine + Environment.NewLine;
+
+            }
+
+            rtxtdados.AppendText($"Funcionarios que nasceram no mês {data.Month}: " + Environment.NewLine + Environment.NewLine + conteudo);
+        }
+
+        private void btnListarTotal_Click(object sender, EventArgs e)
+        {
+            List<Funcionario> auxFuncionarios = new List<Funcionario>();
+            Funcionario funcioAtual = new Funcionario();
+            Funcionario funcioAntigo = new Funcionario();
+            List<Departamento> auxDepartamentos = new List<Departamento>();
+            string conteudo = "";
+            double salarios = 0;
+            int qtde = 0;
+            bool repetiu = false;
+
+            auxDepartamentos = ListaDepartamentos.ListaGeral();
+            auxFuncionarios = Lista_Funcionarios.ListaGeral();
+
+            for (int x = 0; x < auxDepartamentos.Count; x++)
+            {
+                salarios = 0;
+                qtde = 0;
+                for (int y = 0; y < auxFuncionarios.Count; y++)
+                {
+
+                    if (auxFuncionarios[y].GetDepartamento() == null) //No Caso todo gerente tem cod de departamento = 0
+                    {
+                        repetiu = false;
+
+                        //pegar o gerente do departamento
+                        funcioAtual = Lista_Funcionarios.Find(auxDepartamentos[x].CodGerente);
+                        if (funcioAtual == funcioAntigo)
+                            repetiu = true;
+
+                        if (repetiu == false)
+                        {
+                            salarios += funcioAtual.Salario;
+                            qtde++;
+                            funcioAntigo = funcioAtual;
+                        }
+                    }
+                    else if (auxFuncionarios[y].GetDepartamento().Codigo == auxDepartamentos[x].Codigo) // pegar funcionarios
+                    {
+                        qtde++;
+                        salarios += auxFuncionarios[y].Salario;
+                    }
+
+                }
+
+                conteudo += $"Departamento: {auxDepartamentos[x].Codigo} - Total de Funcionários: {qtde} - Total De Salários: {salarios}" + Environment.NewLine + Environment.NewLine;
+            }
+
+            rtxtdados.AppendText(conteudo);
         }
     }
 }
