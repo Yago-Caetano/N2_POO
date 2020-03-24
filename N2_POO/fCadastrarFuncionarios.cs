@@ -26,6 +26,22 @@ namespace N2_POO
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             Funcionario f = new Funcionario();
+            List<Funcionario> repete = Lista_Funcionarios.ListaGeral();
+
+            if (txtCpf.Text.Replace(".","").Replace("-","").Trim().Length < 11) // Validar CPF
+            {
+                MessageBox.Show("CPF inválido!!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+            }
+
+            foreach(Funcionario fu in repete)
+            {
+                if(nupCodigo.Value == fu.Codigo)
+                {
+                    MessageBox.Show($"O código {nupCodigo.Value} ja foi cadastrado!!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
 
             try
             {
@@ -44,22 +60,8 @@ namespace N2_POO
 
             if (cbTipo.SelectedItem == null)
             {
-                if (cbTipo.Text[0] != 'F' || cbTipo.Text[0] != 'G')
-                {
-                    MessageBox.Show("Tipo inválido");
-                    return;
-                }
-                else if (cbTipo.Text[0] == 'G')
-                {
-                    f.SetTipo(cbTipo.SelectedItem.ToString()[0]);
-                    Lista_Funcionarios.AdcionarFuncionario(f);
-                }
-                else
-                {
-                    f.SetTipo(cbTipo.SelectedItem.ToString()[0]);
-                    f.SetDepartamento(ListaDepartamentos.Find(Convert.ToInt32(nupDepartamento.Value)));
-                    Lista_Funcionarios.AdcionarFuncionario(f);
-                }
+                MessageBox.Show("Selecione o Tipo","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
 
             }
             else if (cbTipo.SelectedItem.ToString()[0] == 'G')
@@ -71,7 +73,7 @@ namespace N2_POO
             {
                 f.SetTipo(cbTipo.SelectedItem.ToString()[0]);
 
-                if (ListaDepartamentos.Find(Convert.ToInt32(nupDepartamento.Value)) == null)
+                if (ListaDepartamentos.Find(Convert.ToInt32(nupDepartamento.Value)) == null) //verifica se o departamento existe
                 {
                     MessageBox.Show("O Departamento não existe");
                     return;
@@ -87,9 +89,7 @@ namespace N2_POO
                + f.Nascimento.ToShortDateString() + Environment.NewLine + "R$" + f.Salario.ToString() + Environment.NewLine + f.Tipo);
 
             string conteudo = "";
-            List<Funcionario> aux = new List<Funcionario>();
-
-            aux = Lista_Funcionarios.ListaGeral();
+            List<Funcionario> aux = Lista_Funcionarios.ListaGeral();
 
             foreach (var func in aux)
             {
@@ -99,7 +99,6 @@ namespace N2_POO
                 else
                     conteudo += func.Nome + "|" + func.Codigo + "|" + func.CPF + "|" + func.Nascimento.ToShortDateString() + "|" + func.Salario + "|"
                       + func.GetDepartamento().Codigo + "|" + func.Tipo + Environment.NewLine;
-
 
             }
 

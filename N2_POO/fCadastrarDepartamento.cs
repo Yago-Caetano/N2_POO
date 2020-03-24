@@ -22,52 +22,59 @@ namespace N2_POO
         {
             Departamento d = new Departamento();
             Funcionario validar = new Funcionario();
+            List<Departamento> repete = ListaDepartamentos.ListaGeral();
 
-            try
+            foreach (Departamento dep in repete) //se o codigo ja foi cadastrado em outra departamento
             {
-
-                validar = Lista_Funcionarios.Find(Convert.ToInt32(nupCodigoGerente.Value));
-
-                if (validar != null)
-                    d.CodGerente = Convert.ToInt32(nupCodigoGerente.Value);
-                else
+                if (nupCodigo.Value == dep.Codigo)
                 {
-                    MessageBox.Show("O gerente não existe");
+                    MostrarErro($"O Código {nupCodigo.Value} ja foi utilizado!");
                     return;
                 }
-
-
-                d.Codigo = Convert.ToInt32(nupCodigo.Value);
-                d.Descrição = txtDescricao.Text;
-                d.CodGerente = Convert.ToInt32(nupCodigoGerente.Value);
-
-
             }
-            catch (Exception error)
+
+            if (txtDescricao.Text.Trim() == "") //descrição vazia{
             {
-                MessageBox.Show(error.Message);
+                MostrarErro("Digite uma descrição!!");
                 return;
             }
 
-            ListaDepartamentos.Adcionar(d);           
+            validar = Lista_Funcionarios.Find(Convert.ToInt32(nupCodigoGerente.Value));
+
+            if (validar != null) //Verifica se o gerente existe
+                d.CodGerente = Convert.ToInt32(nupCodigoGerente.Value);
+            else
+            {
+                MostrarErro("O gerente não existe!!");
+                return;
+            }
+
+    
+                d.Codigo = Convert.ToInt32(nupCodigo.Value);
+                d.Descrição = txtDescricao.Text;
+                d.CodGerente = Convert.ToInt32(nupCodigoGerente.Value);
+                ListaDepartamentos.Adcionar(d);
+
 
             MessageBox.Show("Código: " + d.Codigo.ToString() + Environment.NewLine + "Código Gerente: " + d.CodGerente.ToString() + Environment.NewLine
                 + "Descrição: " + d.Descrição);
 
             string conteudo = "";
-            List<Departamento> aux = new List<Departamento>();
-
-            aux = ListaDepartamentos.ListaGeral();
+            List<Departamento> aux = ListaDepartamentos.ListaGeral();
 
             foreach (var departa in aux)
             {
                 conteudo += departa.Codigo + "|" + departa.CodGerente + "|" + departa.Descrição + Environment.NewLine;
-
             }
 
             File.WriteAllText("Departamentos.txt", conteudo, Encoding.UTF8);
 
-           
+        }
+
+        private void MostrarErro(string erro)
+        {
+            MessageBox.Show(erro, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
         }
     }
 }

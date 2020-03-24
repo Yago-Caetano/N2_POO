@@ -20,9 +20,7 @@ namespace N2_POO
 
         private void btnAumentoFixo_Click(object sender, EventArgs e)
         {
-            List<Funcionario> Funcio = new List<Funcionario>();
-
-            Funcio = Lista_Funcionarios.ListaGeral();
+            List<Funcionario> Funcio = Lista_Funcionarios.ListaGeral();
 
             foreach (Funcionario f in Funcio)
             {
@@ -30,9 +28,7 @@ namespace N2_POO
             }
 
             string conteudo = "";
-            List<Funcionario> aux = new List<Funcionario>();
-
-            aux = Lista_Funcionarios.ListaGeral();
+            List<Funcionario> aux = Lista_Funcionarios.ListaGeral();
 
             foreach (var func in aux)
             {
@@ -42,7 +38,6 @@ namespace N2_POO
                 else
                     conteudo += func.Nome + "|" + func.Codigo + "|" + func.CPF + "|" + func.Nascimento.ToShortDateString() + "|" + func.Salario + "|"
                       + func.GetDepartamento().Codigo + "|" + func.Tipo + Environment.NewLine;
-
 
             }
 
@@ -53,9 +48,7 @@ namespace N2_POO
 
         private void btnAumentoPercentual_Click(object sender, EventArgs e)
         {
-            List<Funcionario> Funcio = new List<Funcionario>();
-
-            Funcio = Lista_Funcionarios.ListaGeral();
+            List<Funcionario> Funcio = Lista_Funcionarios.ListaGeral();
 
             foreach (Funcionario f in Funcio)
             {
@@ -63,9 +56,7 @@ namespace N2_POO
             }
 
             string conteudo = "";
-            List<Funcionario> aux = new List<Funcionario>();
-
-            aux = Lista_Funcionarios.ListaGeral();
+            List<Funcionario> aux = Lista_Funcionarios.ListaGeral();
 
             foreach (var func in aux)
             {
@@ -76,12 +67,11 @@ namespace N2_POO
                     conteudo += func.Nome + "|" + func.Codigo + "|" + func.CPF + "|" + func.Nascimento.ToShortDateString() + "|" + func.Salario + "|"
                       + func.GetDepartamento().Codigo + "|" + func.Tipo + Environment.NewLine;
 
-
             }
 
             File.WriteAllText("Funcionarios.txt", conteudo, Encoding.UTF8);
 
-            MessageBox.Show("Foi dado um aumento de" + nupPorcentagem.Value.ToString() + "%" + " a todos os funcionários");
+            MessageBox.Show("Foi dado um aumento de " + nupPorcentagem.Value.ToString() + "%" + " a todos os funcionários");
         }
     }
 }

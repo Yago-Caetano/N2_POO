@@ -48,7 +48,7 @@
             // 
             this.btnAumento.FlatAppearance.BorderSize = 0;
             this.btnAumento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAumento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAumento.ForeColor = System.Drawing.Color.Yellow;
             this.btnAumento.Location = new System.Drawing.Point(392, 3);
             this.btnAumento.Name = "btnAumento";
@@ -62,7 +62,7 @@
             // 
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Yellow;
             this.button1.Location = new System.Drawing.Point(578, 3);
             this.button1.Name = "button1";
@@ -76,7 +76,7 @@
             // 
             this.btnCadastrarDepartamento.FlatAppearance.BorderSize = 0;
             this.btnCadastrarDepartamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrarDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrarDepartamento.ForeColor = System.Drawing.Color.Yellow;
             this.btnCadastrarDepartamento.Location = new System.Drawing.Point(205, 3);
             this.btnCadastrarDepartamento.Name = "btnCadastrarDepartamento";
@@ -90,7 +90,7 @@
             // 
             this.btnCadastrar.FlatAppearance.BorderSize = 0;
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.ForeColor = System.Drawing.Color.Yellow;
             this.btnCadastrar.Location = new System.Drawing.Point(0, 0);
             this.btnCadastrar.Name = "btnCadastrar";
@@ -126,11 +126,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Yellow;
             this.label1.Location = new System.Drawing.Point(18, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 17);
+            this.label1.Size = new System.Drawing.Size(67, 17);
             this.label1.TabIndex = 11;
             this.label1.Text = "N2 POO";
             // 

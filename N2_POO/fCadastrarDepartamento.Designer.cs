@@ -64,9 +64,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 15);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(18, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.Size = new System.Drawing.Size(63, 17);
             this.label1.TabIndex = 3;
             this.label1.Text = "Código:";
             // 
@@ -95,18 +96,20 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 211);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(18, 209);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.Size = new System.Drawing.Size(132, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "Código Gerente :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 63);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(18, 61);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.Size = new System.Drawing.Size(85, 17);
             this.label3.TabIndex = 8;
             this.label3.Text = "Descrição:";
             // 
@@ -120,9 +123,13 @@
             // 
             // btnCadastrarDepartamento
             // 
-            this.btnCadastrarDepartamento.Location = new System.Drawing.Point(191, 211);
+            this.btnCadastrarDepartamento.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
+            this.btnCadastrarDepartamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrarDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrarDepartamento.ForeColor = System.Drawing.Color.Blue;
+            this.btnCadastrarDepartamento.Location = new System.Drawing.Point(242, 226);
             this.btnCadastrarDepartamento.Name = "btnCadastrarDepartamento";
-            this.btnCadastrarDepartamento.Size = new System.Drawing.Size(119, 49);
+            this.btnCadastrarDepartamento.Size = new System.Drawing.Size(164, 70);
             this.btnCadastrarDepartamento.TabIndex = 9;
             this.btnCadastrarDepartamento.Text = "Cadastrar";
             this.btnCadastrarDepartamento.UseVisualStyleBackColor = true;
@@ -132,6 +139,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.ClientSize = new System.Drawing.Size(407, 296);
             this.Controls.Add(this.btnCadastrarDepartamento);
             this.Controls.Add(this.label3);
@@ -142,7 +150,7 @@
             this.Controls.Add(this.label1);
             this.Name = "fCadastrarDepartamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "fCadastrarDepartamento";
+            this.Text = "Cadastro";
             ((System.ComponentModel.ISupportInitialize)(this.nupCodigo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupCodigoGerente)).EndInit();
             this.ResumeLayout(false);

@@ -36,14 +36,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.nupPorcentagem = new System.Windows.Forms.NumericUpDown();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.nupAumentoFixo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupPorcentagem)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // nupAumentoFixo
             // 
             this.nupAumentoFixo.DecimalPlaces = 2;
-            this.nupAumentoFixo.Location = new System.Drawing.Point(36, 30);
+            this.nupAumentoFixo.Location = new System.Drawing.Point(167, 34);
             this.nupAumentoFixo.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -66,26 +68,32 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 14);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(149, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.Size = new System.Drawing.Size(173, 17);
             this.label1.TabIndex = 1;
             this.label1.Text = "Aumento em valor fixo:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 32);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(133, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 13);
+            this.label2.Size = new System.Drawing.Size(28, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "R$";
             // 
             // btnAumentoFixo
             // 
-            this.btnAumentoFixo.Location = new System.Drawing.Point(171, 15);
+            this.btnAumentoFixo.FlatAppearance.BorderSize = 0;
+            this.btnAumentoFixo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAumentoFixo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAumentoFixo.ForeColor = System.Drawing.Color.Yellow;
+            this.btnAumentoFixo.Location = new System.Drawing.Point(0, 0);
             this.btnAumentoFixo.Name = "btnAumentoFixo";
-            this.btnAumentoFixo.Size = new System.Drawing.Size(101, 47);
+            this.btnAumentoFixo.Size = new System.Drawing.Size(127, 86);
             this.btnAumentoFixo.TabIndex = 3;
             this.btnAumentoFixo.Text = "Aplicar";
             this.btnAumentoFixo.UseVisualStyleBackColor = true;
@@ -93,9 +101,13 @@
             // 
             // btnAumentoPercentual
             // 
-            this.btnAumentoPercentual.Location = new System.Drawing.Point(171, 89);
+            this.btnAumentoPercentual.FlatAppearance.BorderSize = 0;
+            this.btnAumentoPercentual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAumentoPercentual.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAumentoPercentual.ForeColor = System.Drawing.Color.Yellow;
+            this.btnAumentoPercentual.Location = new System.Drawing.Point(2, 92);
             this.btnAumentoPercentual.Name = "btnAumentoPercentual";
-            this.btnAumentoPercentual.Size = new System.Drawing.Size(101, 47);
+            this.btnAumentoPercentual.Size = new System.Drawing.Size(121, 91);
             this.btnAumentoPercentual.TabIndex = 7;
             this.btnAumentoPercentual.Text = "Aplicar";
             this.btnAumentoPercentual.UseVisualStyleBackColor = true;
@@ -104,38 +116,50 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 106);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(278, 128);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(15, 13);
+            this.label3.Size = new System.Drawing.Size(21, 17);
             this.label3.TabIndex = 6;
             this.label3.Text = "%";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(37, 88);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(140, 106);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 13);
+            this.label4.Size = new System.Drawing.Size(159, 17);
             this.label4.TabIndex = 5;
             this.label4.Text = "Aumento Porcentual:";
             // 
             // nupPorcentagem
             // 
-            this.nupPorcentagem.Location = new System.Drawing.Point(36, 104);
+            this.nupPorcentagem.Location = new System.Drawing.Point(152, 126);
             this.nupPorcentagem.Name = "nupPorcentagem";
             this.nupPorcentagem.Size = new System.Drawing.Size(120, 20);
             this.nupPorcentagem.TabIndex = 4;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.MediumBlue;
+            this.panel1.Controls.Add(this.btnAumentoFixo);
+            this.panel1.Controls.Add(this.btnAumentoPercentual);
+            this.panel1.Location = new System.Drawing.Point(0, -3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(127, 185);
+            this.panel1.TabIndex = 8;
             // 
             // fAumento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(333, 182);
-            this.Controls.Add(this.btnAumentoPercentual);
+            this.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.ClientSize = new System.Drawing.Size(340, 182);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.nupPorcentagem);
-            this.Controls.Add(this.btnAumentoFixo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nupAumentoFixo);
@@ -144,6 +168,7 @@
             this.Text = "Aumento";
             ((System.ComponentModel.ISupportInitialize)(this.nupAumentoFixo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nupPorcentagem)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,5 +184,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown nupPorcentagem;
+        private System.Windows.Forms.Panel panel1;
     }
 }
