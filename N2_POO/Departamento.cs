@@ -18,7 +18,7 @@ namespace N2_POO
         /// <param name="codigo"></param>
         /// <param name="codGerente"></param>
         /// <param name="descricao"></param>
-        public Departamento(int codigo,int codGerente, string descricao)
+        public Departamento(int codigo, string descricao, int codGerente)
         {
             this.codigo = codigo;
             this.codGerente = codGerente;
@@ -29,11 +29,11 @@ namespace N2_POO
         /// Classe responsável por armazenar os dados de departamento
         /// </summary>
         /// <param name="codigo"></param>
-        /// <param name="codGerente"></param>
-        public Departamento(int codigo, int codGerente)
+        /// <param name="descricao"></param>
+        public Departamento(int codigo, string descricao)
         {
             this.codigo = codigo;
-            this.codGerente = codGerente;
+            this.descricao = descricao;
         }
 
 
