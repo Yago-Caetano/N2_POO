@@ -150,9 +150,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(244, 175);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(202, 16);
+            this.label3.Size = new System.Drawing.Size(218, 16);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Yago José Barros - 0811900";
+            this.label3.Text = "Yago José Barros - 081190027";
             // 
             // label4
             // 
@@ -160,9 +160,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(244, 227);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(209, 16);
+            this.label4.Size = new System.Drawing.Size(225, 16);
             this.label4.TabIndex = 14;
-            this.label4.Text = "Guilherme Tavares - 0811900";
+            this.label4.Text = "Guilherme Tavares - 081190035";
             // 
             // label5
             // 
@@ -170,9 +170,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(244, 202);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 16);
+            this.label5.Size = new System.Drawing.Size(186, 16);
             this.label5.TabIndex = 13;
-            this.label5.Text = "Roger - 0811900";
+            this.label5.Text = "Roger Kenichi- 081190026";
             // 
             // label6
             // 
@@ -180,9 +180,9 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(244, 251);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(197, 16);
+            this.label6.Size = new System.Drawing.Size(213, 16);
             this.label6.TabIndex = 15;
-            this.label6.Text = "Rodrigo Emiliano - 0811900";
+            this.label6.Text = "Rodrigo Emiliano - 081190004";
             // 
             // Form1
             // 
