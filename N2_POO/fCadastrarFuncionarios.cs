@@ -26,22 +26,26 @@ namespace N2_POO
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             Funcionario f = new Funcionario();
-            List<Funcionario> repete = Lista_Funcionarios.ListaGeral();
 
-            if (txtCpf.Text.Replace(".","").Replace("-","").Trim().Length < 11) // Validar CPF
+            if (txtCpf.Text.Replace(".", "").Replace("-", "").Trim().Length < 11) // Validar CPF
             {
                 MessageBox.Show("CPF inválido!!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                return;
             }
 
-            foreach(Funcionario fu in repete)
+            if (Lista_Funcionarios.Tamanho() != 0)
             {
-                if(nupCodigo.Value == fu.Codigo)
+                List<Funcionario> repete = Lista_Funcionarios.ListaGeral();
+                foreach (Funcionario fu in repete)
                 {
-                    MessageBox.Show($"O código {nupCodigo.Value} ja foi cadastrado!!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    if (nupCodigo.Value == fu.Codigo)
+                    {
+                        MessageBox.Show($"O código {nupCodigo.Value} ja foi cadastrado!!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
             }
+            
 
             try
             {

@@ -22,16 +22,21 @@ namespace N2_POO
         {
             Departamento d = new Departamento();
             Funcionario validar = new Funcionario();
-            List<Departamento> repete = ListaDepartamentos.ListaGeral();
 
-            foreach (Departamento dep in repete) //se o codigo ja foi cadastrado em outra departamento
+            if(ListaDepartamentos.Tamanho() != 0)
             {
-                if (nupCodigo.Value == dep.Codigo)
+                List<Departamento> repete = ListaDepartamentos.ListaGeral();
+
+                foreach (Departamento dep in repete) //se o codigo ja foi cadastrado em outra departamento
                 {
-                    MostrarErro($"O Código {nupCodigo.Value} ja foi utilizado!");
-                    return;
+                    if (nupCodigo.Value == dep.Codigo)
+                    {
+                        MostrarErro($"O Código {nupCodigo.Value} ja foi utilizado!");
+                        return;
+                    }
                 }
             }
+
 
             if (txtDescricao.Text.Trim() == "") //descrição vazia{
             {
