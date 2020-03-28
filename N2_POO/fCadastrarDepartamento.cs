@@ -46,6 +46,12 @@ namespace N2_POO
 
             validar = Lista_Funcionarios.Find(Convert.ToInt32(nupCodigoGerente.Value));
 
+            if(validar.Tipo != 'G')
+            {
+                MostrarErro("Selecione Apenas Gerentes!!");
+                return;
+            }
+
             if (validar != null) //Verifica se o gerente existe
                 d.CodGerente = Convert.ToInt32(nupCodigoGerente.Value);
             else
@@ -60,6 +66,7 @@ namespace N2_POO
                 d.CodGerente = Convert.ToInt32(nupCodigoGerente.Value);
                 ListaDepartamentos.Adcionar(d);
 
+            validar.SetDepartamento(d);
 
             MessageBox.Show("Código: " + d.Codigo.ToString() + Environment.NewLine + "Código Gerente: " + d.CodGerente.ToString() + Environment.NewLine
                 + "Descrição: " + d.Descrição);
@@ -73,6 +80,17 @@ namespace N2_POO
             }
 
             File.WriteAllText("Departamentos.txt", conteudo, Encoding.UTF8);
+
+
+            List<Funcionario> fun = Lista_Funcionarios.ListaGeral();
+
+            foreach (var func in fun)
+            {
+                    conteudo += func.Nome + "|" + func.Codigo + "|" + func.CPF + "|" + func.Nascimento.ToShortDateString() + "|" + func.Salario + "|"
+                      + func.GetDepartamento().Codigo + "|" + func.Tipo + Environment.NewLine;
+            }
+
+            File.WriteAllText("Funcionarios.txt", conteudo, Encoding.UTF8);
 
         }
 

@@ -45,7 +45,7 @@ namespace N2_POO
                     }
                 }
             }
-            
+
 
             try
             {
@@ -64,14 +64,9 @@ namespace N2_POO
 
             if (cbTipo.SelectedItem == null)
             {
-                MessageBox.Show("Selecione o Tipo","Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Selecione o Tipo", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
 
-            }
-            else if (cbTipo.SelectedItem.ToString()[0] == 'G')
-            {
-                f.SetTipo(cbTipo.SelectedItem.ToString()[0]);
-                Lista_Funcionarios.AdcionarFuncionario(f);
             }
             else
             {
@@ -79,13 +74,20 @@ namespace N2_POO
 
                 if (ListaDepartamentos.Find(Convert.ToInt32(nupDepartamento.Value)) == null) //verifica se o departamento existe
                 {
-                    MessageBox.Show("O Departamento não existe");
-                    return;
+                    if (f.Tipo == 'G')
+                        Lista_Funcionarios.AdcionarFuncionario(f);                      
+                    else
+                    {
+                        MessageBox.Show("O Departamento não existe");
+                        return;
+                    }
                 }
                 else
+                {
                     f.SetDepartamento(ListaDepartamentos.Find(Convert.ToInt32(nupDepartamento.Value)));
+                    Lista_Funcionarios.AdcionarFuncionario(f);
+                }
 
-                Lista_Funcionarios.AdcionarFuncionario(f);
             }
 
 
@@ -98,7 +100,7 @@ namespace N2_POO
             foreach (var func in aux)
             {
                 if (func.GetDepartamento() == null)
-                    conteudo += func.Nome + "|" + func.Codigo +"|"+ func.CPF + "|" + func.Nascimento.ToShortDateString() + "|" + func.Salario + "|"
+                    conteudo += func.Nome + "|" + func.Codigo + "|" + func.CPF + "|" + func.Nascimento.ToShortDateString() + "|" + func.Salario + "|"
                   + 0 + "|" + func.Tipo + Environment.NewLine;
                 else
                     conteudo += func.Nome + "|" + func.Codigo + "|" + func.CPF + "|" + func.Nascimento.ToShortDateString() + "|" + func.Salario + "|"

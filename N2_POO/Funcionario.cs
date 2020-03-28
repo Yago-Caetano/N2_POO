@@ -251,11 +251,11 @@ namespace N2_POO
         /// <param name="departamento"></param>
         public void SetDepartamento(Departamento departamento)
         {
-            if (tipo == 'G')
+           /* if (tipo == 'G')
             {
                 departamento = null;
-            }
-            else if (!ListaDepartamentos.Contains(departamento))
+            } */
+            if (!ListaDepartamentos.Contains(departamento))
             {
                 throw new Exception("Departamento Inexistente");
             }

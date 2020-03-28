@@ -136,9 +136,19 @@
             // nupPorcentagem
             // 
             this.nupPorcentagem.Location = new System.Drawing.Point(152, 126);
+            this.nupPorcentagem.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nupPorcentagem.Name = "nupPorcentagem";
             this.nupPorcentagem.Size = new System.Drawing.Size(120, 20);
             this.nupPorcentagem.TabIndex = 4;
+            this.nupPorcentagem.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // panel1
             // 

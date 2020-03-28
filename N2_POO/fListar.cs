@@ -19,9 +19,19 @@ namespace N2_POO
 
         private void btnListar_Click(object sender, EventArgs e)
         {
+
+            rtxtdados.Text = "";
             List<Funcionario> aux = new List<Funcionario>();
 
-            aux = Lista_Funcionarios.ListaGeral();
+            try
+            {
+                aux = Lista_Funcionarios.ListaGeral();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+                return;
+            }
             string conteudo = "";
 
             foreach (var func in aux)
@@ -44,15 +54,24 @@ namespace N2_POO
 
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-            rtxtdados.Text = "";
         }
 
         private void btnListarDepartamento_Click(object sender, EventArgs e)
         {
+            rtxtdados.Text = "";
             List<Funcionario> aux = new List<Funcionario>();
-            string conteudo = $"Departamento {nupCodigoDepartamento.Value}" + Environment.NewLine;
+            string conteudo = $"Departamento {nupCodigoDepartamento.Value}:" + Environment.NewLine + Environment.NewLine;
 
-            aux = Lista_Funcionarios.ListaDepartamento(ListaDepartamentos.Find(Convert.ToInt32(nupCodigoDepartamento.Value)));
+            try
+            {
+                aux = Lista_Funcionarios.ListaDepartamento(ListaDepartamentos.Find(Convert.ToInt32(nupCodigoDepartamento.Value)));
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+                return;
+            }
+
 
             foreach (var func in aux)
             {
@@ -67,6 +86,7 @@ namespace N2_POO
 
         private void btnCodGerente_Click(object sender, EventArgs e)
         {
+            rtxtdados.Text = "";
             List<Funcionario> aux = new List<Funcionario>();
             string conteudo = "";
 
@@ -74,20 +94,27 @@ namespace N2_POO
             {
                 aux = Lista_Funcionarios.ListarPorGerente(Lista_Funcionarios.Find(Convert.ToInt32(nupeCodGerente.Value)));
             }
-            catch (Exception erro)
+            catch
             {
-                MessageBox.Show(erro.Message);
+                MessageBox.Show("Não há funcionarios cadastrados!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             conteudo = $"Gerente {Lista_Funcionarios.Find(Convert.ToInt32(nupeCodGerente.Value)).Nome}" + Environment.NewLine + Environment.NewLine;
+            string igual = conteudo;
 
             foreach (var func in aux)
             {
-                conteudo += "Nome: " + func.Nome + Environment.NewLine + "Código: " + func.Codigo + Environment.NewLine + "CPF: " + func.CPF
-                + Environment.NewLine + "Data de Nascimento: " + func.Nascimento.ToShortDateString() + Environment.NewLine + "Salário: R$"
-                    + func.Salario + Environment.NewLine + "Departamento: " + func.GetDepartamento().Codigo + Environment.NewLine + "Tipo: " + func.Tipo + Environment.NewLine + Environment.NewLine;
+                if (func.Tipo != 'G')
+                    conteudo += "Nome: " + func.Nome + Environment.NewLine + "Código: " + func.Codigo + Environment.NewLine + "CPF: " + func.CPF
+                    + Environment.NewLine + "Data de Nascimento: " + func.Nascimento.ToShortDateString() + Environment.NewLine + "Salário: R$"
+                        + func.Salario + Environment.NewLine + "Departamento: " + func.GetDepartamento().Codigo + Environment.NewLine + "Tipo: " + func.Tipo + Environment.NewLine + Environment.NewLine;
 
+            }
+            if (conteudo == igual)
+            {
+                MessageBox.Show("Não há funcionarios cadastrados!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             rtxtdados.AppendText(conteudo);
@@ -95,6 +122,7 @@ namespace N2_POO
 
         private void btnListarGerentes_Click(object sender, EventArgs e)
         {
+            rtxtdados.Text = "";
             List<Funcionario> aux = new List<Funcionario>();
 
             try
@@ -113,7 +141,7 @@ namespace N2_POO
             {
                 for (int y = 0; y < departamentos.Count; y++)
                 {
-                    if (aux[x].Codigo == departamentos[y].CodGerente)
+                    if (aux[x].GetDepartamento() == departamentos[y])
                     {
                         List<Funcionario> funcionariosDoDepartamento = Lista_Funcionarios.ListaDepartamento(departamentos[y]);
                         string gerente = $"Gerente: Código: {aux[x].Codigo} - Nome: {aux[x].Nome}" + Environment.NewLine;
@@ -123,7 +151,8 @@ namespace N2_POO
 
                         foreach (Funcionario f in funcionariosDoDepartamento)
                         {
-                            funcionarios += $"Código: {f.Codigo} - Nome: {f.Nome} - CPF {f.CPF}" + Environment.NewLine;
+                            if (f.Tipo != 'G')
+                                funcionarios += $"Código: {f.Codigo} - Nome: {f.Nome} - CPF {f.CPF}" + Environment.NewLine;
                         }
 
                         rtxtdados.SelectionColor = Color.Yellow;
@@ -147,9 +176,20 @@ namespace N2_POO
 
         private void button1_Click(object sender, EventArgs e)
         {
+            rtxtdados.Text = "";
             DateTime data = new DateTime(2019, Convert.ToInt32(nupMes.Value), 11);
+            List<Funcionario> aux = new List<Funcionario>();
 
-            List<Funcionario> aux = Lista_Funcionarios.ListaPorNascimento(Convert.ToDateTime(data));
+            try
+            {
+                aux = Lista_Funcionarios.ListaPorNascimento(Convert.ToDateTime(data));
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+                return;
+            }
+
             string conteudo = "";
 
             foreach (var func in aux)
@@ -171,6 +211,7 @@ namespace N2_POO
 
         private void btnListarTotal_Click(object sender, EventArgs e)
         {
+            rtxtdados.Text = "";
             List<Funcionario> auxFuncionarios = new List<Funcionario>();
             Funcionario funcioAtual = new Funcionario();
             Funcionario funcioAntigo = new Funcionario();
@@ -180,8 +221,15 @@ namespace N2_POO
             int qtde = 0;
             bool repetiu = false;
 
-            auxDepartamentos = ListaDepartamentos.ListaGeral();
-            auxFuncionarios = Lista_Funcionarios.ListaGeral();
+            try
+            {
+                auxDepartamentos = ListaDepartamentos.ListaGeral();
+                auxFuncionarios = Lista_Funcionarios.ListaGeral();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
 
             for (int x = 0; x < auxDepartamentos.Count; x++)
             {

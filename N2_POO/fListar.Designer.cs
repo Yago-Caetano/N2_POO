@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnListar = new System.Windows.Forms.Button();
-            this.btnLimpar = new System.Windows.Forms.Button();
             this.btnListarDepartamento = new System.Windows.Forms.Button();
             this.nupCodigoDepartamento = new System.Windows.Forms.NumericUpDown();
             this.nupeCodGerente = new System.Windows.Forms.NumericUpDown();
@@ -61,20 +60,6 @@
             this.btnListar.Text = "Listagem Geral:";
             this.btnListar.UseVisualStyleBackColor = true;
             this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
-            // 
-            // btnLimpar
-            // 
-            this.btnLimpar.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
-            this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpar.ForeColor = System.Drawing.Color.Blue;
-            this.btnLimpar.Location = new System.Drawing.Point(194, 392);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(366, 59);
-            this.btnLimpar.TabIndex = 3;
-            this.btnLimpar.Text = "Limpar";
-            this.btnLimpar.UseVisualStyleBackColor = true;
-            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnListarDepartamento
             // 
@@ -164,10 +149,10 @@
             // 
             // rtxtdados
             // 
-            this.rtxtdados.Location = new System.Drawing.Point(194, 10);
+            this.rtxtdados.Location = new System.Drawing.Point(194, 23);
             this.rtxtdados.Name = "rtxtdados";
             this.rtxtdados.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.rtxtdados.Size = new System.Drawing.Size(365, 381);
+            this.rtxtdados.Size = new System.Drawing.Size(383, 400);
             this.rtxtdados.TabIndex = 14;
             this.rtxtdados.Text = "";
             // 
@@ -240,7 +225,6 @@
             this.panel2.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel2.Controls.Add(this.rtxtdados);
             this.panel2.Controls.Add(this.nupCodigoDepartamento);
-            this.panel2.Controls.Add(this.btnLimpar);
             this.panel2.Controls.Add(this.nupMes);
             this.panel2.Controls.Add(this.nupeCodGerente);
             this.panel2.Location = new System.Drawing.Point(193, -1);
@@ -270,7 +254,6 @@
 
         #endregion
         private System.Windows.Forms.Button btnListar;
-        private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnListarDepartamento;
         private System.Windows.Forms.NumericUpDown nupCodigoDepartamento;
         private System.Windows.Forms.NumericUpDown nupeCodGerente;
