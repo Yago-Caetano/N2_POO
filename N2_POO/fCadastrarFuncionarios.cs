@@ -26,26 +26,12 @@ namespace N2_POO
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             Funcionario f = new Funcionario();
+            bool error = false;
 
-            if (txtCpf.Text.Replace(".", "").Replace("-", "").Trim().Length < 11) // Validar CPF
-            {
-                MessageBox.Show("CPF inválido!!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            VerificarErros(ref error);
+            if (error == true)
                 return;
-            }
-
-            if (Lista_Funcionarios.Tamanho() != 0)
-            {
-                List<Funcionario> repete = Lista_Funcionarios.ListaGeral();
-                foreach (Funcionario fu in repete)
-                {
-                    if (nupCodigo.Value == fu.Codigo)
-                    {
-                        MessageBox.Show($"O código {nupCodigo.Value} ja foi cadastrado!!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-                }
-            }
-
+            
 
             try
             {
@@ -110,6 +96,30 @@ namespace N2_POO
 
             File.WriteAllText("Funcionarios.txt", conteudo, Encoding.UTF8);
 
+        }
+
+        private void VerificarErros(ref bool error)
+        {
+            if (txtCpf.Text.Replace(".", "").Replace("-", "").Trim().Length < 11) // Validar CPF
+            {
+                MessageBox.Show("CPF inválido!!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                error = true;
+                return;
+            }
+
+            if (Lista_Funcionarios.Tamanho() != 0)
+            {
+                List<Funcionario> repete = Lista_Funcionarios.ListaGeral();
+                foreach (Funcionario fu in repete)
+                {
+                    if (nupCodigo.Value == fu.Codigo)
+                    {
+                        MessageBox.Show($"O código {nupCodigo.Value} ja foi cadastrado!!", "ERRO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        error = true;
+                        return;
+                    }
+                }
+            }
         }
     }
 }

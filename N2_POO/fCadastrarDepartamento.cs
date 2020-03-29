@@ -34,6 +34,11 @@ namespace N2_POO
                         MostrarErro($"O Código {nupCodigo.Value} ja foi utilizado!");
                         return;
                     }
+                    if(nupCodigoGerente.Value == dep.CodGerente)
+                    {
+                        MostrarErro($"O Gerente {nupCodigoGerente.Value} ja foi utilizado!");
+                        return;
+                    }
                 }
             }
 
@@ -46,22 +51,26 @@ namespace N2_POO
 
             validar = Lista_Funcionarios.Find(Convert.ToInt32(nupCodigoGerente.Value));
 
-            if(validar.Tipo != 'G')
+            if (validar != null)//Verifica se o gerente existe
             {
-                MostrarErro("Selecione Apenas Gerentes!!");
-                return;
-            }
+                if (validar.Tipo != 'G')
+                {
+                    MostrarErro("Selecione Apenas Gerentes!!");
+                    return;
+                }
 
-            if (validar != null) //Verifica se o gerente existe
                 d.CodGerente = Convert.ToInt32(nupCodigoGerente.Value);
+            }
             else
             {
                 MostrarErro("O gerente não existe!!");
                 return;
             }
 
-    
-                d.Codigo = Convert.ToInt32(nupCodigo.Value);
+
+
+
+            d.Codigo = Convert.ToInt32(nupCodigo.Value);
                 d.Descrição = txtDescricao.Text;
                 d.CodGerente = Convert.ToInt32(nupCodigoGerente.Value);
                 ListaDepartamentos.Adcionar(d);
@@ -99,5 +108,6 @@ namespace N2_POO
             MessageBox.Show(erro, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
+
     }
 }
