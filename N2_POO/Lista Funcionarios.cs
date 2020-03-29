@@ -130,7 +130,7 @@ namespace N2_POO
                Departamento depAux;
                for(int i = 0; i<ListaDepartamentos.Tamanho();i++)
                {
-                    if(ListaDepartamentos.GetItem(i).Codigo == f.Codigo)
+                    if(ListaDepartamentos.GetItem(i).CodGerente == f.Codigo)
                     {
                         depAux = ListaDepartamentos.GetItem(i);
                         retornaFuncio = ListaDepartamento(depAux);
