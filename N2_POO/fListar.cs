@@ -128,6 +128,39 @@ namespace N2_POO
             try
             {
                 aux = Lista_Funcionarios.ListaGerentes();
+                List<Departamento> departamentos = ListaDepartamentos.ListaGeral();
+
+                for (int x = 0; x < aux.Count; x++)
+                {
+                    for (int y = 0; y < departamentos.Count; y++)
+                    {
+                        if (aux[x].GetDepartamento() == departamentos[y])
+                        {
+                            List<Funcionario> funcionariosDoDepartamento = Lista_Funcionarios.ListaDepartamento(departamentos[y]);
+                            string gerente = $"Gerente: Código: {aux[x].Codigo} - Nome: {aux[x].Nome}" + Environment.NewLine;
+
+
+                            string funcionarios = "";
+
+                            foreach (Funcionario f in funcionariosDoDepartamento)
+                            {
+                                if (f.Tipo != 'G')
+                                    funcionarios += $"Código: {f.Codigo} - Nome: {f.Nome} - CPF {f.CPF}" + Environment.NewLine;
+                            }
+
+                            rtxtdados.SelectionColor = Color.Yellow;
+                            rtxtdados.AppendText(gerente + Environment.NewLine);
+
+                            rtxtdados.SelectionColor = Color.Black;
+                            rtxtdados.AppendText("Funcionárigios gerenciados:" + Environment.NewLine);
+                            rtxtdados.AppendText(funcionarios + Environment.NewLine + Environment.NewLine);
+
+                        }
+                    }
+
+
+
+                }
             }
             catch (Exception erro)
             {
@@ -135,37 +168,6 @@ namespace N2_POO
                 return;
             }
 
-            List<Departamento> departamentos = ListaDepartamentos.ListaGeral();
-
-            for (int x = 0; x < aux.Count; x++)
-            {
-                for (int y = 0; y < departamentos.Count; y++)
-                {
-                    if (aux[x].GetDepartamento() == departamentos[y])
-                    {
-                        List<Funcionario> funcionariosDoDepartamento = Lista_Funcionarios.ListaDepartamento(departamentos[y]);
-                        string gerente = $"Gerente: Código: {aux[x].Codigo} - Nome: {aux[x].Nome}" + Environment.NewLine;
-
-
-                        string funcionarios = "";
-
-                        foreach (Funcionario f in funcionariosDoDepartamento)
-                        {
-                            if (f.Tipo != 'G')
-                                funcionarios += $"Código: {f.Codigo} - Nome: {f.Nome} - CPF {f.CPF}" + Environment.NewLine;
-                        }
-
-                        rtxtdados.SelectionColor = Color.Yellow;
-                        rtxtdados.AppendText(gerente + Environment.NewLine);
-
-                        rtxtdados.SelectionColor = Color.Black;
-                        rtxtdados.AppendText("Funcionárigios gerenciados:" + Environment.NewLine);
-                        rtxtdados.AppendText(funcionarios + Environment.NewLine + Environment.NewLine);
-
-                    }
-                }
-
-            }
 
         }
 

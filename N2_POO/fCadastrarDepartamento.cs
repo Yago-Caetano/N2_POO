@@ -89,17 +89,21 @@ namespace N2_POO
             }
 
             File.WriteAllText("Departamentos.txt", conteudo, Encoding.UTF8);
-
+            
 
             List<Funcionario> fun = Lista_Funcionarios.ListaGeral();
 
+            conteudo = "";
             foreach (var func in fun)
             {
                     conteudo += func.Nome + "|" + func.Codigo + "|" + func.CPF + "|" + func.Nascimento.ToShortDateString() + "|" + func.Salario + "|"
                       + func.GetDepartamento().Codigo + "|" + func.Tipo + Environment.NewLine;
             }
 
-            File.WriteAllText("Funcionarios.txt", conteudo, Encoding.UTF8);
+            if(conteudo.Length > 2) //se contiver alguma informação
+            {
+                File.WriteAllText("Funcionarios.txt", conteudo, Encoding.UTF8); //escreve  no arquivo texto
+            }
 
         }
 

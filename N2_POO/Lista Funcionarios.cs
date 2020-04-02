@@ -123,7 +123,8 @@ namespace N2_POO
         static public List<Funcionario> ListarPorGerente(Funcionario f)
         {
             List<Funcionario> retornaFuncio = new List<Funcionario>();
-            
+          
+          
             if(f.Tipo == 'G')
             {
                int codigo = f.Codigo;

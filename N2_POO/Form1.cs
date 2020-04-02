@@ -44,19 +44,41 @@ namespace N2_POO
                 
                 for (int x = 0; x < linhas.Length; x++)
                 {
-                    string[] dadosFuncionarios = linhas[x].Split('|');
+                    try
+                    {
+                        if (linhas[x].Length > 2)
+                        {
+                            string[] dadosFuncionarios = linhas[x].Split('|');
 
-                    Funcionario aux = new Funcionario();
+                            Funcionario aux = new Funcionario();
 
-                    aux.SetNome(dadosFuncionarios[0]);
-                    aux.SetCodigo(Convert.ToInt32(dadosFuncionarios[1]));
-                    aux.setCPF(dadosFuncionarios[2]);
-                    aux.SetNascimento(Convert.ToDateTime(dadosFuncionarios[3]));
-                    aux.SetSalario(Convert.ToDouble(dadosFuncionarios[4]));
-                    aux.SetTipo(dadosFuncionarios[6][0]);
-                    aux.SetDepartamento(ListaDepartamentos.Find(Convert.ToInt32(dadosFuncionarios[5])));
+                            aux.SetNome(dadosFuncionarios[0]);
+                            aux.SetCodigo(Convert.ToInt32(dadosFuncionarios[1]));
+                            aux.setCPF(dadosFuncionarios[2]);
+                            aux.SetNascimento(Convert.ToDateTime(dadosFuncionarios[3]));
+                            aux.SetSalario(Convert.ToDouble(dadosFuncionarios[4]));
+                            aux.SetTipo(dadosFuncionarios[6][0]);
+                            try
+                            {
+                                aux.SetDepartamento(ListaDepartamentos.Find(Convert.ToInt32(dadosFuncionarios[5])));
+                            }
+                            catch
+                            {
 
-                    Lista_Funcionarios.AdcionarFuncionario(aux);
+                            }
+
+                            Lista_Funcionarios.AdcionarFuncionario(aux);
+                        }
+                    }
+                    catch(Exception e)
+                    {
+                        MessageBox.Show("Não foi possível carregar os dados salvos");
+                        File.Delete("Funcionarios.txt");
+                        File.Delete("Departamentos.txt");
+                        return;
+                    }
+                  
+                   
                 }
             }
 
