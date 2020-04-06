@@ -90,5 +90,24 @@ namespace N2_POO
             fListar tela = new fListar();
             tela.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+          DialogResult resposta = MessageBox.Show("Tem certeza que quer apagar todos os dados de funcionários e departamentos?", "Apagar", MessageBoxButtons.YesNo);
+
+            if(resposta == DialogResult.Yes)
+            {
+                File.Delete("Funcionarios.txt");
+                File.Delete("Departamentos.txt");
+
+                ListaDepartamentos.Deletar();
+                Lista_Funcionarios.Deletar();
+                
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 }

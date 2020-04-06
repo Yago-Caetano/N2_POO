@@ -102,7 +102,10 @@ namespace N2_POO
             File.WriteAllText("Funcionarios.txt", conteudo, Encoding.UTF8);
 
         }
-
+        /// <summary>
+        /// Lança um message box de erro
+        /// </summary>
+        /// <param name="erro"></param>
         private void MostrarErro(string erro)
         {
             MessageBox.Show(erro, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
