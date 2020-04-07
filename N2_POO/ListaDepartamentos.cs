@@ -16,7 +16,7 @@ namespace N2_POO
         /// <param name="departamento"></param>
         static public void Adcionar(Departamento departamento)
         {
-            if(departamento != null)
+            if (departamento != null)
             {
                 departamentos.Add(departamento);
             }
@@ -32,15 +32,15 @@ namespace N2_POO
         /// <param name="cod"></param>
         static public bool Remover(int cod)
         {
-            foreach(Departamento d in departamentos)
+            foreach (Departamento d in departamentos)
             {
-                if(d.Codigo == cod)
+                if (d.Codigo == cod)
                 {
                     departamentos.Remove(d);
                     return true;
                 }
             }
-            return false; 
+            return false;
         }
 
 
@@ -51,7 +51,7 @@ namespace N2_POO
         /// <returns></returns>
         static public Departamento GetItem(int index)
         {
-            if(index > departamentos.Count)
+            if (index > departamentos.Count)
             {
                 throw new Exception("Indice fora dos limites");
             }
@@ -70,7 +70,7 @@ namespace N2_POO
         {
             foreach (Departamento d in departamentos)
             {
-                if (d.Equals(dep)) 
+                if (d.Equals(dep))
                 {
                     return true;
                 }
@@ -99,11 +99,23 @@ namespace N2_POO
                 throw new Exception("Não há departamentos cadastrados");
             }
         }
-
+        /// <summary>
+        /// Procura um departamentos através do codigo do departamento se o encontrar o devolve caso contrário devolve null
+        /// </summary>
+        /// <param name="codigoDepartamento"></param>
+        /// <returns></returns>
         static public Departamento Find(int codigoDepartamento)
         {
             return departamentos.Find(x => x.Codigo == codigoDepartamento);
 
+        }
+
+        /// <summary>
+        /// Apaga todos os dados da lista
+        /// </summary>
+        static public void Deletar()
+        {
+            departamentos.Clear();
         }
 
     }

@@ -44,41 +44,19 @@ namespace N2_POO
                 
                 for (int x = 0; x < linhas.Length; x++)
                 {
-                    try
-                    {
-                        if (linhas[x].Length > 2)
-                        {
-                            string[] dadosFuncionarios = linhas[x].Split('|');
+                    string[] dadosFuncionarios = linhas[x].Split('|');
 
-                            Funcionario aux = new Funcionario();
+                    Funcionario aux = new Funcionario();
 
-                            aux.SetNome(dadosFuncionarios[0]);
-                            aux.SetCodigo(Convert.ToInt32(dadosFuncionarios[1]));
-                            aux.setCPF(dadosFuncionarios[2]);
-                            aux.SetNascimento(Convert.ToDateTime(dadosFuncionarios[3]));
-                            aux.SetSalario(Convert.ToDouble(dadosFuncionarios[4]));
-                            aux.SetTipo(dadosFuncionarios[6][0]);
-                            try
-                            {
-                                aux.SetDepartamento(ListaDepartamentos.Find(Convert.ToInt32(dadosFuncionarios[5])));
-                            }
-                            catch
-                            {
+                    aux.SetNome(dadosFuncionarios[0]);
+                    aux.SetCodigo(Convert.ToInt32(dadosFuncionarios[1]));
+                    aux.setCPF(dadosFuncionarios[2]);
+                    aux.SetNascimento(Convert.ToDateTime(dadosFuncionarios[3]));
+                    aux.SetSalario(Convert.ToDouble(dadosFuncionarios[4]));
+                    aux.SetTipo(dadosFuncionarios[6][0]);
+                    aux.SetDepartamento(ListaDepartamentos.Find(Convert.ToInt32(dadosFuncionarios[5])));
 
-                            }
-
-                            Lista_Funcionarios.AdcionarFuncionario(aux);
-                        }
-                    }
-                    catch(Exception e)
-                    {
-                        MessageBox.Show("Não foi possível carregar os dados salvos");
-                        File.Delete("Funcionarios.txt");
-                        File.Delete("Departamentos.txt");
-                        return;
-                    }
-                  
-                   
+                    Lista_Funcionarios.AdcionarFuncionario(aux);
                 }
             }
 
@@ -111,6 +89,25 @@ namespace N2_POO
         {
             fListar tela = new fListar();
             tela.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+          DialogResult resposta = MessageBox.Show("Tem certeza que quer apagar todos os dados de funcionários e departamentos?", "Apagar", MessageBoxButtons.YesNo);
+
+            if(resposta == DialogResult.Yes)
+            {
+                File.Delete("Funcionarios.txt");
+                File.Delete("Departamentos.txt");
+
+                ListaDepartamentos.Deletar();
+                Lista_Funcionarios.Deletar();
+                
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

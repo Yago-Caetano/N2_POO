@@ -123,8 +123,7 @@ namespace N2_POO
         static public List<Funcionario> ListarPorGerente(Funcionario f)
         {
             List<Funcionario> retornaFuncio = new List<Funcionario>();
-          
-          
+            
             if(f.Tipo == 'G')
             {
                int codigo = f.Codigo;
@@ -200,11 +199,22 @@ namespace N2_POO
                 throw new Exception("A lista está vazia");
             }
         }
-
+        /// <summary>
+        /// Procura um funcionário através do codigo do funcionário se o encontrar o devolve caso contrário devolve null
+        /// </summary>
+        /// <param name="codigoFuncionario"></param>
+        /// <returns></returns>
         static public Funcionario Find(int codigoFuncionario)
         {
            return  funcionarios.Find(x => x.Codigo == codigoFuncionario);
 
+        }
+        /// <summary>
+        /// Apaga todos os dados da lista
+        /// </summary>
+        static public void Deletar()
+        {
+            funcionarios.Clear();
         }
 
     }
