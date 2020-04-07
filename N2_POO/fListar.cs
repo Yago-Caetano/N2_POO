@@ -120,6 +120,7 @@ namespace N2_POO
             rtxtdados.AppendText(conteudo);
         }
 
+
         private void btnListarGerentes_Click(object sender, EventArgs e)
         {
             rtxtdados.Text = "";
