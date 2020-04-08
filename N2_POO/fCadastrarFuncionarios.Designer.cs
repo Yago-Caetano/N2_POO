@@ -65,6 +65,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(116, 20);
             this.txtNome.TabIndex = 1;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // nupCodigo
             // 

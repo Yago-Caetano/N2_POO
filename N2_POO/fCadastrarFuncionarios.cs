@@ -121,5 +121,26 @@ namespace N2_POO
                 }
             }
         }
+
+        /// <summary>
+        /// Ao alterar o texto 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+            //inibe o input de numeros
+            char[] originalText = txtNome.Text.ToCharArray();
+            foreach (char c in originalText)
+            {
+                if (Char.IsNumber(c))
+                {
+                    txtNome.Text = txtNome.Text.Remove(txtNome.Text.IndexOf(c));
+                    txtNome.Visible = true;
+                }
+              
+            }
+            txtNome.Select(txtNome.Text.Length, 0);
+        }
     }
 }

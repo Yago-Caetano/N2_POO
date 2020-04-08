@@ -120,6 +120,7 @@
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(289, 113);
             this.txtDescricao.TabIndex = 7;
+            this.txtDescricao.TextChanged += new System.EventHandler(this.txtDescricao_TextChanged);
             // 
             // btnCadastrarDepartamento
             // 

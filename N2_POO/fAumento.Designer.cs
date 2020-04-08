@@ -64,6 +64,7 @@
             0,
             0,
             0});
+            this.nupAumentoFixo.ValueChanged += new System.EventHandler(this.nupAumentoFixo_ValueChanged);
             // 
             // label1
             // 

@@ -73,5 +73,10 @@ namespace N2_POO
 
             MessageBox.Show("Foi dado um aumento de " + nupPorcentagem.Value.ToString() + "%" + " a todos os funcionários");
         }
+
+        private void nupAumentoFixo_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
