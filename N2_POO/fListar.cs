@@ -125,6 +125,7 @@ namespace N2_POO
         {
             rtxtdados.Text = "";
             List<Funcionario> aux = new List<Funcionario>();
+            List<Departamento> departamentos = new List<Departamento>();
 
             try
             {
@@ -136,7 +137,15 @@ namespace N2_POO
                 return;
             }
 
-            List<Departamento> departamentos = ListaDepartamentos.ListaGeral();
+            try
+            {
+              departamentos = ListaDepartamentos.ListaGeral();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message);
+                return;
+            }
 
             for (int x = 0; x < aux.Count; x++)
             {

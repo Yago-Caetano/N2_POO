@@ -54,7 +54,15 @@ namespace N2_POO
                     aux.SetNascimento(Convert.ToDateTime(dadosFuncionarios[3]));
                     aux.SetSalario(Convert.ToDouble(dadosFuncionarios[4]));
                     aux.SetTipo(dadosFuncionarios[6][0]);
-                    aux.SetDepartamento(ListaDepartamentos.Find(Convert.ToInt32(dadosFuncionarios[5])));
+                    try
+                    {
+                        aux.SetDepartamento(ListaDepartamentos.Find(Convert.ToInt32(dadosFuncionarios[5])));
+                    }
+                    catch
+                    {
+                        File.Delete("Funcionarios.txt");
+                        Lista_Funcionarios.Deletar();
+                    }
 
                     Lista_Funcionarios.AdcionarFuncionario(aux);
                 }
